@@ -43,7 +43,7 @@ gsap.to(sequenceState, {
 	scrollTrigger: {
 		trigger: ".canvas-container",
 		start: "top top",
-		end: "+=3500",
+		end: "bottom center",
 		pin: true,
 		scrub: 0.5,
 	},
