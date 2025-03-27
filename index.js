@@ -96,7 +96,6 @@ function animateTrackItems() {
 		x: "120px",
 		opacity: 0,
 		filter: "blur(8px)",
-		rotate: 180,
 		ease: "power2.out",
 		duration: 0.8,
 		stagger: 0.2,
