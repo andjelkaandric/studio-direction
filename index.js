@@ -114,30 +114,33 @@ animateTrackItems();
 
 // horizontal scroll
 function setupHorizontalScroll() {
-	const container = document.querySelector(".track__wrap");
-	const trackItems = document.querySelectorAll(".track__item");
-
-	// Calculate total width of track items
-	const totalWidth = Array.from(trackItems).reduce(
-		(total, item) => total + item.offsetWidth,
-		0
-	);
-
-	// Create horizontal scroll animation
-	gsap.to(container, {
-		x: () => -(totalWidth - window.innerWidth),
-		ease: "none",
-		scrollTrigger: {
-			trigger: container,
-			scrub: 1,
-			start: "top center",
-			// end: () => `+=${totalWidth}`,
-			end: "top 40%",
-			invalidateOnRefresh: true,
-		},
-	});
-}
-
-// Initialize on page load
-setupHorizontalScroll();
-window.addEventListener("resize", setupHorizontalScroll);
+    // Select the container
+    const container = document.querySelector('.track__wrap');
+    
+    if (!container) return;
+  
+    // Calculate scroll distances
+    const parentWidth = container.parentElement.clientWidth;
+    const trackWrapWidth = container.scrollWidth;
+    const scrollDistance = trackWrapWidth - parentWidth;
+  
+    // Create horizontal scroll animation
+    gsap.to(container, {
+      x: -scrollDistance,
+      ease: "none",
+      scrollTrigger: {
+        trigger: container,
+        scrub: 1,
+        start: "top center",
+        end: () => `+=${scrollDistance}`,
+        invalidateOnRefresh: true,
+        // markers: true, // Uncomment for debugging
+      }
+    });
+  }
+  
+  // Initialize on page load
+  document.addEventListener('DOMContentLoaded', setupHorizontalScroll);
+  
+  // Recalculate on window resize
+  window.addEventListener('resize', setupHorizontalScroll);
