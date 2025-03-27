@@ -112,33 +112,54 @@ animateTrackItems();
 
 // horizontal scroll
 function setupHorizontalScroll() {
-    // Select the container
-    const container = document.querySelector('.track__wrap');
-    
-    if (!container) return;
-  
-    // Calculate scroll distances
-    const parentWidth = container.parentElement.clientWidth;
-    const trackWrapWidth = container.scrollWidth;
-    const scrollDistance = trackWrapWidth - parentWidth;
-  
-    // Create horizontal scroll animation
-    gsap.to(container, {
-      x: -scrollDistance,
-      ease: "none",
-      scrollTrigger: {
-        trigger: "#horizontal-trigger",
-        scrub: 1,
-        start: "top bottom",
-        end: "top top",
-        invalidateOnRefresh: true,
-        // markers: true, // Uncomment for debugging
-      }
-    });
-  }
-  
-  // Initialize on page load
-  document.addEventListener('DOMContentLoaded', setupHorizontalScroll);
-  
-  // Recalculate on window resize
-  window.addEventListener('resize', setupHorizontalScroll);
+	// Select the container
+	const container = document.querySelector(".track__wrap");
+
+	if (!container) return;
+
+	// Calculate scroll distances
+	const parentWidth = container.parentElement.clientWidth;
+	const trackWrapWidth = container.scrollWidth;
+	const scrollDistance = trackWrapWidth - parentWidth;
+
+	// Create horizontal scroll animation
+	gsap.to(container, {
+		x: -scrollDistance,
+		ease: "none",
+		scrollTrigger: {
+			trigger: "#horizontal-trigger",
+			scrub: 1,
+			start: "top bottom",
+			end: "top top",
+			invalidateOnRefresh: true,
+			// markers: true, // Uncomment for debugging
+		},
+	});
+}
+
+setupHorizontalScroll();
+window.addEventListener("resize", setupHorizontalScroll);
+
+// horizontal scroll overlay
+function setupHorizontalScrollOverlay() {
+	// Select the container
+	const trackOver = document.querySelector(".track__over");
+
+	if (!trackOver) return;
+
+	// Create horizontal scroll animation
+	gsap.to(trackOver, {
+		x: "-50%",
+		ease: "none",
+		scrollTrigger: {
+			trigger: "#horizontal-trigger",
+			scrub: 1,
+			start: "top bottom",
+			end: "top top",
+			invalidateOnRefresh: true,
+		},
+	});
+}
+
+setupHorizontalScrollOverlay();
+window.addEventListener("resize", setupHorizontalScrollOverlay);
