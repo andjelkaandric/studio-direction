@@ -72,7 +72,7 @@ gsap.to(sequenceState, {
 		pin: true,
 		scrub: 0.5,
 	},
-	// onUpdate: render,
+	onUpdate: render,
 });
 
 // First image load triggers initial render
