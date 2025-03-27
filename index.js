@@ -129,10 +129,10 @@ function setupHorizontalScroll() {
       x: -scrollDistance,
       ease: "none",
       scrollTrigger: {
-        trigger: container,
+        trigger: "#horizontal-trigger",
         scrub: 1,
-        start: "top center",
-        end: "top 40%",
+        start: "top bottom",
+        end: "top 20%",
         invalidateOnRefresh: true,
         // markers: true, // Uncomment for debugging
       }
