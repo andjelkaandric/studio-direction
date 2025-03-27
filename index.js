@@ -132,7 +132,7 @@ function setupHorizontalScroll() {
         trigger: container,
         scrub: 1,
         start: "top center",
-        end: () => `+=${scrollDistance}`,
+        end: "top 40%",
         invalidateOnRefresh: true,
         // markers: true, // Uncomment for debugging
       }
