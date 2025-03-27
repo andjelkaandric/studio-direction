@@ -129,11 +129,10 @@ function setupHorizontalScroll() {
 		ease: "none",
 		scrollTrigger: {
 			trigger: container,
-			pin: true, // Pin the container
-			scrub: 1, // Smooth scrubbing
-			start: "top top", // Start when top of container hits top of viewport
-			end: () => `+=${totalWidth}`, // End based on total width of items
-			invalidateOnRefresh: true, // Recalculate on resize
+			scrub: 1,
+			start: "top center",
+			end: () => `+=${totalWidth}`,
+			invalidateOnRefresh: true,
 		},
 	});
 }
