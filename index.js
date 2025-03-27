@@ -132,7 +132,7 @@ function setupHorizontalScroll() {
         trigger: "#horizontal-trigger",
         scrub: 1,
         start: "top bottom",
-        end: "top 20%",
+        end: "top top",
         invalidateOnRefresh: true,
         // markers: true, // Uncomment for debugging
       }
