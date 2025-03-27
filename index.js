@@ -93,8 +93,12 @@ function render() {
 function animateTrackItems() {
 	const trackItems = document.querySelectorAll(".track__item");
 	gsap.from(trackItems, {
-		x: 120,
+		x: "300px",
+		y: "-220px",
 		opacity: 0,
+		filter: "blur(8px)",
+		rotate: 180,
+		ease: "power2.out",
 		duration: 0.8,
 		stagger: 0.2,
 		ease: "power2.out",
