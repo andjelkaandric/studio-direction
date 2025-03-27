@@ -149,7 +149,7 @@ function setupHorizontalScrollOverlay() {
 
 	// Create horizontal scroll animation
 	gsap.to(trackOver, {
-		x: "-50%",
+		x: "100vw",
 		ease: "none",
 		scrollTrigger: {
 			trigger: "#horizontal-trigger",
