@@ -20,31 +20,31 @@ const imageUrls = [
 	"https://cdn.prod.website-files.com/65e9886bc86f0798cff8d99c/67e53d1156f5c157b8fb49bc_render-3.avif",
 	"https://cdn.prod.website-files.com/65e9886bc86f0798cff8d99c/67e53d10104229dd085e8127_render-4.avif",
 	"https://cdn.prod.website-files.com/65e9886bc86f0798cff8d99c/67e53d119b524bbda1c25486_render-5.avif",
-    "https://cdn.prod.website-files.com/65e9886bc86f0798cff8d99c/67e54247f9588832f00d2d01_render-6.avif",
-    "https://cdn.prod.website-files.com/65e9886bc86f0798cff8d99c/67e5424773a60355b2250a68_render-7.avif",
-    "https://cdn.prod.website-files.com/65e9886bc86f0798cff8d99c/67e54247fb71cb149bd1087a_render-8.avif",
-    "https://cdn.prod.website-files.com/65e9886bc86f0798cff8d99c/67e542474be009508f12ff3f_render-9.avif",
-    "https://cdn.prod.website-files.com/65e9886bc86f0798cff8d99c/67e542478b2c5a85ecbb371f_render-10.avif",
-    "https://cdn.prod.website-files.com/65e9886bc86f0798cff8d99c/67e54247b8502ff1c4b4568d_render-11.avif",
-    "https://cdn.prod.website-files.com/65e9886bc86f0798cff8d99c/67e54247e0571be58a4f779d_render-12.avif",
-    "https://cdn.prod.website-files.com/65e9886bc86f0798cff8d99c/67e5424729ff45a01753f4cb_render-13.avif",
-    "https://cdn.prod.website-files.com/65e9886bc86f0798cff8d99c/67e5424726c2800695382a95_render-14.avif",
-    "https://cdn.prod.website-files.com/65e9886bc86f0798cff8d99c/67e542471fb19bf6f83c5b25_render-15.avif",
-    "https://cdn.prod.website-files.com/65e9886bc86f0798cff8d99c/67e5424829ff45a01753f64b_render-16.avif",
-    "https://cdn.prod.website-files.com/65e9886bc86f0798cff8d99c/67e54247ab90c360913d3429_render-17.avif",
-    "https://cdn.prod.website-files.com/65e9886bc86f0798cff8d99c/67e542485e17a32f80689144_render-18.avif",
-    "https://cdn.prod.website-files.com/65e9886bc86f0798cff8d99c/67e54248914eeda96ac68ca5_render-19.avif",
-    "https://cdn.prod.website-files.com/65e9886bc86f0798cff8d99c/67e542489ea0dde17783e632_render-20.avif",
-    "https://cdn.prod.website-files.com/65e9886bc86f0798cff8d99c/67e542483d104600d7ec072e_render-21.avif",
-    "https://cdn.prod.website-files.com/65e9886bc86f0798cff8d99c/67e5424935f211d28eeb92df_render-22.avif",
-    "https://cdn.prod.website-files.com/65e9886bc86f0798cff8d99c/67e54248d120826e227a19be_render-23.avif",
-    "https://cdn.prod.website-files.com/65e9886bc86f0798cff8d99c/67e54248d120826e227a19c2_render-24.avif",
-    "https://cdn.prod.website-files.com/65e9886bc86f0798cff8d99c/67e54248a40a04ef7d231e58_render-25.avif",
-    "https://cdn.prod.website-files.com/65e9886bc86f0798cff8d99c/67e5424833dba2a9fe78571b_render-26.avif",
-    "https://cdn.prod.website-files.com/65e9886bc86f0798cff8d99c/67e54249f872cdfc7bf2463b_render-27.avif",
-    "https://cdn.prod.website-files.com/65e9886bc86f0798cff8d99c/67e5424929ff45a01753faa5_render-28.avif",
-    "https://cdn.prod.website-files.com/65e9886bc86f0798cff8d99c/67e542494be009508f13019e_render-29.avif",
-    "https://cdn.prod.website-files.com/65e9886bc86f0798cff8d99c/67e54249aff8b31bf6432d9a_render-30.avif",
+	"https://cdn.prod.website-files.com/65e9886bc86f0798cff8d99c/67e54247f9588832f00d2d01_render-6.avif",
+	"https://cdn.prod.website-files.com/65e9886bc86f0798cff8d99c/67e5424773a60355b2250a68_render-7.avif",
+	"https://cdn.prod.website-files.com/65e9886bc86f0798cff8d99c/67e54247fb71cb149bd1087a_render-8.avif",
+	"https://cdn.prod.website-files.com/65e9886bc86f0798cff8d99c/67e542474be009508f12ff3f_render-9.avif",
+	"https://cdn.prod.website-files.com/65e9886bc86f0798cff8d99c/67e542478b2c5a85ecbb371f_render-10.avif",
+	"https://cdn.prod.website-files.com/65e9886bc86f0798cff8d99c/67e54247b8502ff1c4b4568d_render-11.avif",
+	"https://cdn.prod.website-files.com/65e9886bc86f0798cff8d99c/67e54247e0571be58a4f779d_render-12.avif",
+	"https://cdn.prod.website-files.com/65e9886bc86f0798cff8d99c/67e5424729ff45a01753f4cb_render-13.avif",
+	"https://cdn.prod.website-files.com/65e9886bc86f0798cff8d99c/67e5424726c2800695382a95_render-14.avif",
+	"https://cdn.prod.website-files.com/65e9886bc86f0798cff8d99c/67e542471fb19bf6f83c5b25_render-15.avif",
+	"https://cdn.prod.website-files.com/65e9886bc86f0798cff8d99c/67e5424829ff45a01753f64b_render-16.avif",
+	"https://cdn.prod.website-files.com/65e9886bc86f0798cff8d99c/67e54247ab90c360913d3429_render-17.avif",
+	"https://cdn.prod.website-files.com/65e9886bc86f0798cff8d99c/67e542485e17a32f80689144_render-18.avif",
+	"https://cdn.prod.website-files.com/65e9886bc86f0798cff8d99c/67e54248914eeda96ac68ca5_render-19.avif",
+	"https://cdn.prod.website-files.com/65e9886bc86f0798cff8d99c/67e542489ea0dde17783e632_render-20.avif",
+	"https://cdn.prod.website-files.com/65e9886bc86f0798cff8d99c/67e542483d104600d7ec072e_render-21.avif",
+	"https://cdn.prod.website-files.com/65e9886bc86f0798cff8d99c/67e5424935f211d28eeb92df_render-22.avif",
+	"https://cdn.prod.website-files.com/65e9886bc86f0798cff8d99c/67e54248d120826e227a19be_render-23.avif",
+	"https://cdn.prod.website-files.com/65e9886bc86f0798cff8d99c/67e54248d120826e227a19c2_render-24.avif",
+	"https://cdn.prod.website-files.com/65e9886bc86f0798cff8d99c/67e54248a40a04ef7d231e58_render-25.avif",
+	"https://cdn.prod.website-files.com/65e9886bc86f0798cff8d99c/67e5424833dba2a9fe78571b_render-26.avif",
+	"https://cdn.prod.website-files.com/65e9886bc86f0798cff8d99c/67e54249f872cdfc7bf2463b_render-27.avif",
+	"https://cdn.prod.website-files.com/65e9886bc86f0798cff8d99c/67e5424929ff45a01753faa5_render-28.avif",
+	"https://cdn.prod.website-files.com/65e9886bc86f0798cff8d99c/67e542494be009508f13019e_render-29.avif",
+	"https://cdn.prod.website-files.com/65e9886bc86f0798cff8d99c/67e54249aff8b31bf6432d9a_render-30.avif",
 ];
 
 const frameCount = imageUrls.length;
@@ -88,3 +88,22 @@ function render() {
 		canvas.height
 	);
 }
+
+// Track animation
+function animateTrackItems() {
+	const trackItems = document.querySelectorAll(".track__item");
+	gsap.from(trackItems, {
+		x: 120,
+		opacity: 0,
+		duration: 0.8,
+		stagger: 0.2,
+		ease: "power2.out",
+		scrollTrigger: {
+			trigger: ".track__item",
+			start: "top 80%",
+			end: "bottom 20%",
+			toggleActions: "play none none none",
+		},
+	});
+}
+animateTrackItems();
