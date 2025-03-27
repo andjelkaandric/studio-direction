@@ -69,7 +69,7 @@ gsap.to(sequenceState, {
 		trigger: ".o-section.morph",
 		start: "top top",
 		end: "bottom bottom",
-		pin: true,
+		// pin: true,
 		scrub: 0.5,
 	},
 	onUpdate: render,
