@@ -111,3 +111,33 @@ function animateTrackItems() {
 	});
 }
 animateTrackItems();
+
+// horizontal scroll
+function setupHorizontalScroll() {
+	const container = document.querySelector(".track__wrap");
+	const trackItems = document.querySelectorAll(".track__item");
+
+	// Calculate total width of track items
+	const totalWidth = Array.from(trackItems).reduce(
+		(total, item) => total + item.offsetWidth,
+		0
+	);
+
+	// Create horizontal scroll animation
+	gsap.to(container, {
+		x: () => -(totalWidth - window.innerWidth),
+		ease: "none",
+		scrollTrigger: {
+			trigger: container,
+			pin: true, // Pin the container
+			scrub: 1, // Smooth scrubbing
+			start: "top top", // Start when top of container hits top of viewport
+			end: () => `+=${totalWidth}`, // End based on total width of items
+			invalidateOnRefresh: true, // Recalculate on resize
+		},
+	});
+}
+
+// Initialize on page load
+setupHorizontalScroll();
+window.addEventListener("resize", setupHorizontalScroll);
