@@ -131,7 +131,8 @@ function setupHorizontalScroll() {
 			trigger: container,
 			scrub: 1,
 			start: "top center",
-			end: () => `+=${totalWidth}`,
+			// end: () => `+=${totalWidth}`,
+			end: "top 40%",
 			invalidateOnRefresh: true,
 		},
 	});
