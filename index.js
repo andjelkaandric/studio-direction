@@ -437,3 +437,97 @@ if (window.innerWidth > 992) {
         });
     });
 }
+
+//tiles GRID SCROLL ANIMATION
+if (window.innerWidth > 992) {
+    gsap.fromTo(
+        ".tiles__line-img[data-move='max']",
+        { x: "300px" },
+        {
+            x: "-40px",
+            scrollTrigger: {
+                trigger: ".tiles",
+                start: "top bottom",
+                end: "bottom center",
+                scrub: true,
+                markers: false,
+            },
+            ease: "power1.out",
+        }
+    );
+    gsap.fromTo(
+        ".tiles__line-img[data-move='mid']",
+        { x: "150px" },
+        {
+            x: "-24px",
+            scrollTrigger: {
+                trigger: ".tiles",
+                start: "top bottom",
+                end: "bottom center",
+                scrub: true,
+                markers: false,
+            },
+            ease: "power2.out",
+        }
+    );
+    gsap.fromTo(
+        ".tiles__line-img[data-move='min']",
+        { x: "50px" },
+        {
+            x: "-8px",
+            scrollTrigger: {
+                trigger: ".tiles",
+                start: "top bottom",
+                end: "bottom center",
+                scrub: true,
+                markers: false,
+            },
+            ease: "power3.out",
+        }
+    );
+    gsap.fromTo(
+        ".tiles__line-img[data-move='max-right']",
+        { x: "-300px" },
+        {
+            x: "40px",
+            scrollTrigger: {
+                trigger: ".tiles",
+                start: "top bottom",
+                end: "bottom center",
+                scrub: true,
+                markers: false,
+            },
+            ease: "power1.out",
+        }
+    );
+    gsap.fromTo(
+        ".tiles__line-img[data-move='mid-right']",
+        { x: "-100px" },
+        {
+            x: "24px",
+            scrollTrigger: {
+                trigger: ".tiles",
+                start: "top bottom",
+                end: "bottom center",
+                scrub: true,
+                markers: false,
+            },
+            ease: "power2.out",
+        }
+    );
+    gsap.fromTo(
+        ".tiles__line-img[data-move='min-right']",
+        { x: "-50px" },
+        {
+            x: "8px",
+            scrollTrigger: {
+                trigger: ".tiles",
+                start: "top bottom",
+                end: "bottom center",
+                scrub: true,
+                markers: false,
+            },
+            ease: "power3.out",
+        }
+    );
+}
