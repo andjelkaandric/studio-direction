@@ -102,7 +102,7 @@ function animateTrackItems() {
 		ease: "power2.out",
 		scrollTrigger: {
 			trigger: ".track__item",
-			start: "top 80%",
+			start: "top 90%",
 			end: "bottom 20%",
 			toggleActions: "play none none none",
 		},
