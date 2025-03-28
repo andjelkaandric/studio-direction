@@ -144,10 +144,11 @@ window.addEventListener("resize", setupHorizontalScroll);
 function setupHorizontalScrollOverlay() {
 	// Select the container
 	const trackOver = document.querySelector(".track__over");
+	const trackOverColor = document.querySelector(".track__over-color");
 
 	if (!trackOver) return;
 
-	// Create horizontal scroll animation
+	// horizontal scroll animation for overlay
 	gsap.from(trackOver, {
         x: "-100vw",
 		ease: "none",
@@ -156,6 +157,19 @@ function setupHorizontalScrollOverlay() {
 			scrub: 1,
 			start: "top bottom",
 			end: "top top",
+			invalidateOnRefresh: true,
+		},
+	});
+
+    // Create horizontal scroll animation
+	gsap.to(trackOverColor, {
+        width: "100%",
+		ease: "none",
+		scrollTrigger: {
+			trigger: "#horizontal-trigger",
+			scrub: 1,
+			start: "bottom top",
+			end: "bottom -10%",
 			invalidateOnRefresh: true,
 		},
 	});
