@@ -173,6 +173,17 @@ function setupHorizontalScrollOverlay() {
 			invalidateOnRefresh: true,
 		},
 	});
+    gsap.to(trackOver, {
+        color: "#3EC172",
+		ease: "none",
+		scrollTrigger: {
+			trigger: "#horizontal-trigger",
+			scrub: 1,
+			start: "bottom top",
+			end: "bottom -10px",
+			invalidateOnRefresh: true,
+		},
+	});
 }
 
 setupHorizontalScrollOverlay();
