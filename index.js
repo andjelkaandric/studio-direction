@@ -2,12 +2,12 @@
 const ukiyoElements = document.querySelectorAll(".ukiyo");
 
 ukiyoElements.forEach((element) => {
-    new Ukiyo(element, {
-        scale: 1.2,
-        speed: 1.5,
-        willChange: true,
-        externalRAF: false,
-    });
+	new Ukiyo(element, {
+		scale: 1.2,
+		speed: 1.5,
+		willChange: true,
+		externalRAF: false,
+	});
 });
 
 const canvas = document.getElementById("hero-lightpass");
@@ -162,7 +162,7 @@ function setupHorizontalScrollOverlay() {
 
 	// horizontal scroll animation for overlay
 	gsap.from(trackOver, {
-        x: "-100vw",
+		x: "-100vw",
 		ease: "none",
 		scrollTrigger: {
 			trigger: "#horizontal-trigger",
@@ -173,9 +173,9 @@ function setupHorizontalScrollOverlay() {
 		},
 	});
 
-    // Create horizontal scroll animation
+	// Create horizontal scroll animation
 	gsap.to(trackOverColor, {
-        width: "100%",
+		width: "100%",
 		ease: "none",
 		scrollTrigger: {
 			trigger: "#horizontal-trigger",
@@ -185,8 +185,8 @@ function setupHorizontalScrollOverlay() {
 			invalidateOnRefresh: true,
 		},
 	});
-    gsap.to(trackOver, {
-        color: "#3EC172",
+	gsap.to(trackOver, {
+		color: "#3EC172",
 		ease: "none",
 		scrollTrigger: {
 			trigger: "#horizontal-trigger",
@@ -203,331 +203,326 @@ window.addEventListener("resize", setupHorizontalScrollOverlay);
 
 //swiper slider
 const swiperThree = new Swiper("#swiper-three", {
-    slidesPerView: 1,
-    spaceBetween: 12,
-    freeMode: false,
-    speed: 800,
-    scrollbar: {
-        el: "#scrollbar-three",
-    },
-    navigation: {
-        prevEl: "#three-prev",
-        nextEl: "#three-next",
-    },
-    breakpoints: {
-        1920: {
-            slidesPerView: 4,
-            freeMode: true,
-            spaceBetween: 32,
-        },
-        992: {
-            slidesPerView: 4,
-            freeMode: true,
-            spaceBetween: 32,
-        },
-        479: {
-            slidesPerView: 2,
-            freeMode: true,
-            spaceBetween: 32,
-        },
-    },
+	slidesPerView: 1,
+	spaceBetween: 12,
+	freeMode: false,
+	speed: 800,
+	scrollbar: {
+		el: "#scrollbar-three",
+	},
+	navigation: {
+		prevEl: "#three-prev",
+		nextEl: "#three-next",
+	},
+	breakpoints: {
+		1920: {
+			slidesPerView: 4,
+			freeMode: true,
+			spaceBetween: 32,
+		},
+		992: {
+			slidesPerView: 4,
+			freeMode: true,
+			spaceBetween: 32,
+		},
+		479: {
+			slidesPerView: 2,
+			freeMode: true,
+			spaceBetween: 32,
+		},
+	},
 });
 
 //huge slider
 document.addEventListener("DOMContentLoaded", () => {
-    const hugeSlides = document.querySelectorAll(".swiper-slide.huge-slide");
-    let tl = gsap.timeline({
-        scrollTrigger: {
-            trigger: "#huge-slider-trigger",
-            start: "top bottom",
-            end: "top top",
-            scrub: true,
-        },
-    });
-    tl.to(
-        hugeSlides[1],
-        {
-            clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-            ease: "sine.out",
-        },
-        "0"
-    );
-    tl.to(
-        hugeSlides[1].querySelector(".huge-image .image"),
-        {
-            scale: 1.2,
-            ease: "sine.out",
-        },
-        "0"
-    );
-    tl.to(
-        hugeSlides[0].querySelector(".huge-image .image"),
-        {
-            scale: 1,
-            y: "-80px",
-            ease: "sine.out",
-        },
-        "0"
-    );
-    let tlSec = gsap.timeline({
-        scrollTrigger: {
-            trigger: "#huge-slider-trigger-second",
-            start: "top bottom",
-            end: "top top",
-            scrub: true,
-        },
-    });
-    tlSec.to(
-        hugeSlides[2],
-        {
-            clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-            ease: "sine.out",
-        },
-        "0"
-    );
-    tlSec.to(
-        hugeSlides[2].querySelector(".huge-image .image"),
-        {
-            scale: 1.2,
-            ease: "sine.out",
-        },
-        "0"
-    );
-    tlSec.to(
-        hugeSlides[1].querySelector(".huge-image .image"),
-        {
-            scale: 1,
-            y: "-80px",
-            ease: "sine.out",
-        },
-        "0"
-    );
+	const hugeSlides = document.querySelectorAll(".swiper-slide.huge-slide");
+	let tl = gsap.timeline({
+		scrollTrigger: {
+			trigger: "#huge-slider-trigger",
+			start: "top bottom",
+			end: "top top",
+			scrub: true,
+		},
+	});
+	tl.to(
+		hugeSlides[1],
+		{
+			clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+			ease: "sine.out",
+		},
+		"0"
+	);
+	tl.to(
+		hugeSlides[1].querySelector(".huge-image .image"),
+		{
+			scale: 1.2,
+			ease: "sine.out",
+		},
+		"0"
+	);
+	tl.to(
+		hugeSlides[0].querySelector(".huge-image .image"),
+		{
+			scale: 1,
+			y: "-80px",
+			ease: "sine.out",
+		},
+		"0"
+	);
+	let tlSec = gsap.timeline({
+		scrollTrigger: {
+			trigger: "#huge-slider-trigger-second",
+			start: "top bottom",
+			end: "top top",
+			scrub: true,
+		},
+	});
+	tlSec.to(
+		hugeSlides[2],
+		{
+			clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+			ease: "sine.out",
+		},
+		"0"
+	);
+	tlSec.to(
+		hugeSlides[2].querySelector(".huge-image .image"),
+		{
+			scale: 1.2,
+			ease: "sine.out",
+		},
+		"0"
+	);
+	tlSec.to(
+		hugeSlides[1].querySelector(".huge-image .image"),
+		{
+			scale: 1,
+			y: "-80px",
+			ease: "sine.out",
+		},
+		"0"
+	);
 });
 
 //slider testimonials video
 const swiperTestimonialsVideo = new Swiper(".swiper.testimonials-video", {
-    slidesPerView: 1,
-    spaceBetween: 12,
-    freeMode: false,
-    speed: 800,
-    navigation: {
-        nextEl: ".swiper-button-next.testimonials-video-btn",
-        prevEl: ".swiper-button-prev.testimonials-video-btn",
-    },
-    scrollbar: {
-        el: ".swiper-scrollbar.testimonials-video",
-    },
-    breakpoints: {
-        1920: {
-            slidesPerView: 1.2,
-            freeMode: true,
-            spaceBetween: 32,
-        },
-        992: {
-            slidesPerView: 1.2,
-            freeMode: true,
-            spaceBetween: 32,
-        },
-    },
+	slidesPerView: 1,
+	spaceBetween: 12,
+	freeMode: false,
+	speed: 800,
+	navigation: {
+		nextEl: ".swiper-button-next.testimonials-video-btn",
+		prevEl: ".swiper-button-prev.testimonials-video-btn",
+	},
+	scrollbar: {
+		el: ".swiper-scrollbar.testimonials-video",
+	},
+	breakpoints: {
+		1920: {
+			slidesPerView: 1.2,
+			freeMode: true,
+			spaceBetween: 32,
+		},
+		992: {
+			slidesPerView: 1.2,
+			freeMode: true,
+			spaceBetween: 32,
+		},
+	},
 });
 
 // Handle Testimonial video play
 document.querySelectorAll(".testimonial__play").forEach((button) => {
-    button.addEventListener("click", function () {
-        // Find the parent testimonial container
-        const testimonial = this.closest(".swiper-slide.testimonial");
+	button.addEventListener("click", function () {
+		// Find the parent testimonial container
+		const testimonial = this.closest(".swiper-slide.testimonial");
 
-        // Find the video and overlay within the same container
-        const video = testimonial.querySelector("#testimonial-video");
-        const overlay = testimonial.querySelector(".testimonial__over");
+		// Find the video and overlay within the same container
+		const video = testimonial.querySelector("#testimonial-video");
+		const overlay = testimonial.querySelector(".testimonial__over");
 
-        if (video && overlay) {
-            // Play the video
-            video.play();
-            video.setAttribute("controls", "true");
+		if (video && overlay) {
+			// Play the video
+			video.play();
+			video.setAttribute("controls", "true");
 
-            // Hide the overlay
-            overlay.style.opacity = "0";
-            setTimeout(() => {
-                overlay.style.display = "none";
-            }, 300);
+			// Hide the overlay
+			overlay.style.opacity = "0";
+			setTimeout(() => {
+				overlay.style.display = "none";
+			}, 300);
 
-            // Request fullscreen mode
-            if (video.requestFullscreen) {
-                video.requestFullscreen();
-            } else if (video.webkitRequestFullscreen) {
-                video.webkitRequestFullscreen(); // Safari
-            } else if (video.msRequestFullscreen) {
-                video.msRequestFullscreen(); // Internet Explorer/Edge
-            }
+			// Request fullscreen mode
+			if (video.requestFullscreen) {
+				video.requestFullscreen();
+			} else if (video.webkitRequestFullscreen) {
+				video.webkitRequestFullscreen(); // Safari
+			} else if (video.msRequestFullscreen) {
+				video.msRequestFullscreen(); // Internet Explorer/Edge
+			}
 
-            // Listen for fullscreen exit
-            document.addEventListener("fullscreenchange", handleFullscreenExit);
-            document.addEventListener(
-                "webkitfullscreenchange",
-                handleFullscreenExit
-            );
-            document.addEventListener("msfullscreenchange", handleFullscreenExit);
+			// Listen for fullscreen exit
+			document.addEventListener("fullscreenchange", handleFullscreenExit);
+			document.addEventListener("webkitfullscreenchange", handleFullscreenExit);
+			document.addEventListener("msfullscreenchange", handleFullscreenExit);
 
-            function handleFullscreenExit() {
-                if (
-                    !document.fullscreenElement &&
-                    !document.webkitFullscreenElement &&
-                    !document.msFullscreenElement
-                ) {
-                    // Pause the video
-                    video.pause();
+			function handleFullscreenExit() {
+				if (
+					!document.fullscreenElement &&
+					!document.webkitFullscreenElement &&
+					!document.msFullscreenElement
+				) {
+					// Pause the video
+					video.pause();
 
-                    // Remove video controls
-                    video.removeAttribute("controls");
+					// Remove video controls
+					video.removeAttribute("controls");
 
-                    // Show the overlay
-                    overlay.style.display = "flex";
-                    setTimeout(() => {
-                        overlay.style.opacity = "1";
-                    }, 10);
+					// Show the overlay
+					overlay.style.display = "flex";
+					setTimeout(() => {
+						overlay.style.opacity = "1";
+					}, 10);
 
-                    // Remove event listener to avoid unnecessary calls
-                    document.removeEventListener(
-                        "fullscreenchange",
-                        handleFullscreenExit
-                    );
-                    document.removeEventListener(
-                        "webkitfullscreenchange",
-                        handleFullscreenExit
-                    );
-                    document.removeEventListener(
-                        "msfullscreenchange",
-                        handleFullscreenExit
-                    );
-                }
-            }
-        }
-    });
+					// Remove event listener to avoid unnecessary calls
+					document.removeEventListener(
+						"fullscreenchange",
+						handleFullscreenExit
+					);
+					document.removeEventListener(
+						"webkitfullscreenchange",
+						handleFullscreenExit
+					);
+					document.removeEventListener(
+						"msfullscreenchange",
+						handleFullscreenExit
+					);
+				}
+			}
+		}
+	});
 });
 
 /* accordion */
-document.addEventListener("DOMContentLoaded", function () {
-    var triggers = document.querySelectorAll(".acc__trigger");
+var triggers = document.querySelectorAll(".acc__trigger");
 
-    triggers.forEach(function (trigger) {
-        trigger.addEventListener("click", function () {
-            this.classList.toggle("active");
-        });
-    });
+triggers.forEach(function (trigger) {
+	trigger.addEventListener("click", function () {
+		this.classList.toggle("active");
+	});
 });
 
 // faq hover
 if (window.innerWidth > 992) {
-    const faqTriggers = document.querySelectorAll(".acc__trigger");
+	const faqTriggers = document.querySelectorAll(".acc__trigger");
 
-    faqTriggers.forEach((item, index) => {
-        item.addEventListener("mouseenter", () => {
-            faqTriggers.forEach((otherItem) => {
-                if (otherItem !== item) {
-                    otherItem.closest(".acc__item").style.opacity = 0.3;
-                }
-            });
-        });
+	faqTriggers.forEach((item, index) => {
+		item.addEventListener("mouseenter", () => {
+			faqTriggers.forEach((otherItem) => {
+				if (otherItem !== item) {
+					otherItem.closest(".acc__item").style.opacity = 0.3;
+				}
+			});
+		});
 
-        item.addEventListener("mouseleave", () => {
-            faqTriggers.forEach((otherItem) => {
-                otherItem.closest(".acc__item").style.opacity = 1;
-            });
-        });
-    });
+		item.addEventListener("mouseleave", () => {
+			faqTriggers.forEach((otherItem) => {
+				otherItem.closest(".acc__item").style.opacity = 1;
+			});
+		});
+	});
 }
 
 //tiles GRID SCROLL ANIMATION
 if (window.innerWidth > 992) {
-    gsap.fromTo(
-        ".tiles__line-img[data-move='max']",
-        { x: "300px" },
-        {
-            x: "-40px",
-            scrollTrigger: {
-                trigger: ".tiles",
-                start: "top bottom",
-                end: "bottom center",
-                scrub: true,
-                markers: false,
-            },
-            ease: "power1.out",
-        }
-    );
-    gsap.fromTo(
-        ".tiles__line-img[data-move='mid']",
-        { x: "150px" },
-        {
-            x: "-24px",
-            scrollTrigger: {
-                trigger: ".tiles",
-                start: "top bottom",
-                end: "bottom center",
-                scrub: true,
-                markers: false,
-            },
-            ease: "power2.out",
-        }
-    );
-    gsap.fromTo(
-        ".tiles__line-img[data-move='min']",
-        { x: "50px" },
-        {
-            x: "-8px",
-            scrollTrigger: {
-                trigger: ".tiles",
-                start: "top bottom",
-                end: "bottom center",
-                scrub: true,
-                markers: false,
-            },
-            ease: "power3.out",
-        }
-    );
-    gsap.fromTo(
-        ".tiles__line-img[data-move='max-right']",
-        { x: "-300px" },
-        {
-            x: "40px",
-            scrollTrigger: {
-                trigger: ".tiles",
-                start: "top bottom",
-                end: "bottom center",
-                scrub: true,
-                markers: false,
-            },
-            ease: "power1.out",
-        }
-    );
-    gsap.fromTo(
-        ".tiles__line-img[data-move='mid-right']",
-        { x: "-100px" },
-        {
-            x: "24px",
-            scrollTrigger: {
-                trigger: ".tiles",
-                start: "top bottom",
-                end: "bottom center",
-                scrub: true,
-                markers: false,
-            },
-            ease: "power2.out",
-        }
-    );
-    gsap.fromTo(
-        ".tiles__line-img[data-move='min-right']",
-        { x: "-50px" },
-        {
-            x: "8px",
-            scrollTrigger: {
-                trigger: ".tiles",
-                start: "top bottom",
-                end: "bottom center",
-                scrub: true,
-                markers: false,
-            },
-            ease: "power3.out",
-        }
-    );
+	gsap.fromTo(
+		".tiles__line-img[data-move='max']",
+		{ x: "300px" },
+		{
+			x: "-40px",
+			scrollTrigger: {
+				trigger: ".tiles",
+				start: "top bottom",
+				end: "bottom center",
+				scrub: true,
+				markers: false,
+			},
+			ease: "power1.out",
+		}
+	);
+	gsap.fromTo(
+		".tiles__line-img[data-move='mid']",
+		{ x: "150px" },
+		{
+			x: "-24px",
+			scrollTrigger: {
+				trigger: ".tiles",
+				start: "top bottom",
+				end: "bottom center",
+				scrub: true,
+				markers: false,
+			},
+			ease: "power2.out",
+		}
+	);
+	gsap.fromTo(
+		".tiles__line-img[data-move='min']",
+		{ x: "50px" },
+		{
+			x: "-8px",
+			scrollTrigger: {
+				trigger: ".tiles",
+				start: "top bottom",
+				end: "bottom center",
+				scrub: true,
+				markers: false,
+			},
+			ease: "power3.out",
+		}
+	);
+	gsap.fromTo(
+		".tiles__line-img[data-move='max-right']",
+		{ x: "-300px" },
+		{
+			x: "40px",
+			scrollTrigger: {
+				trigger: ".tiles",
+				start: "top bottom",
+				end: "bottom center",
+				scrub: true,
+				markers: false,
+			},
+			ease: "power1.out",
+		}
+	);
+	gsap.fromTo(
+		".tiles__line-img[data-move='mid-right']",
+		{ x: "-100px" },
+		{
+			x: "24px",
+			scrollTrigger: {
+				trigger: ".tiles",
+				start: "top bottom",
+				end: "bottom center",
+				scrub: true,
+				markers: false,
+			},
+			ease: "power2.out",
+		}
+	);
+	gsap.fromTo(
+		".tiles__line-img[data-move='min-right']",
+		{ x: "-50px" },
+		{
+			x: "8px",
+			scrollTrigger: {
+				trigger: ".tiles",
+				start: "top bottom",
+				end: "bottom center",
+				scrub: true,
+				markers: false,
+			},
+			ease: "power3.out",
+		}
+	);
 }
