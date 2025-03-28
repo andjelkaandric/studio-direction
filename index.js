@@ -169,7 +169,7 @@ function setupHorizontalScrollOverlay() {
 			trigger: "#horizontal-trigger",
 			scrub: 1,
 			start: "bottom top",
-			end: "bottom -10%",
+			end: "bottom -10px",
 			invalidateOnRefresh: true,
 		},
 	});
