@@ -637,112 +637,123 @@ if (window.innerWidth > 992) {
 	);
 }
 
-// services modal video
-	// Modal Elements
-	const modal = document.getElementById("services-modal");
-	const modalVideo = document.getElementById("services-video");
+// SVG Icons - defined once and reused
+const ICONS = {
+	play: `<svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="currentColor">
+	  <path d="M292-162v-636l502 318-502 318Z" />
+	</svg>`,
+	pause: `<svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="currentColor">
+	  <path d="M549-171v-620h212v620H549Zm-350 0v-620h212v620H199Z" />
+	</svg>`,
+	mute: `<svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="currentColor">
+	  <path d="m635-300-74-74 106-106-106-106 74-74 106 106 106-106 74 74-106 106 106 106-74 74-106-106-106 106ZM79-340v-280h174l228-230v740L253-340H79Z" />
+	</svg>`,
+	unmute: `<svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="currentColor">
+	  <path d="M544-57v-108q110-26 179-115t69-202q0-112-69.5-200T544-796v-108q155 26 254.5 145.5T898-482q0 158-99.5 278.5T544-57ZM62-340v-280h174l228-230v740L236-340H62Zm482 32v-344q51 23 81.5 69.5T656-480q0 56-30.5 102.5T544-308Z" />
+	</svg>`,
+};
 
-	// Video Controls
-	const playBtn = document.getElementById("play-btn");
-	const muteBtn = document.getElementById("mute-btn");
-	const progressBar = document.getElementById("progress-bar");
-	const progressBarContainer = document.querySelector(".video-modal__progress");
+// Initialize all video modals
+function initVideoModals() {
+	// Find all modals on the page
+	const videoModals = document.querySelectorAll(".video-modal");
 
-	// SVG Icons
-	const playIcon = `
-		<svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="currentColor">
-			<path d="M292-162v-636l502 318-502 318Z" />
-		</svg>
-	`;
+	videoModals.forEach((modal) => {
+		// Get modal-specific elements
+		const modalId = modal.id;
+		const video = modal.querySelector("video");
+		const playBtn = modal.querySelector("#play-btn");
+		const muteBtn = modal.querySelector("#mute-btn");
+		const progressBar = modal.querySelector("#progress-bar");
+		const progressBarContainer = modal.querySelector(".video-modal__progress");
+		const closeBtn = modal.querySelector('[data-event="close-modal"]');
 
-	const pauseIcon = `
-		<svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="currentColor">
-			<path d="M549-171v-620h212v620H549Zm-350 0v-620h212v620H199Z" />
-		</svg>
-	`;
+		// Skip if any essential element is missing
+		if (!video || !playBtn || !muteBtn || !progressBar || !progressBarContainer)
+			return;
 
-	const muteIcon = `
-		<svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="currentColor">
-			<path d="m635-300-74-74 106-106-106-106 74-74 106 106 106-106 74 74-106 106 106 106-74 74-106-106-106 106ZM79-340v-280h174l228-230v740L253-340H79Z" />
-		</svg>
-	`;
+		// Set initial button states
+		playBtn.innerHTML = ICONS.pause;
+		muteBtn.innerHTML = ICONS.unmute;
 
-	const unmuteIcon = `
-		<svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="currentColor">
-			<path d="M544-57v-108q110-26 179-115t69-202q0-112-69.5-200T544-796v-108q155 26 254.5 145.5T898-482q0 158-99.5 278.5T544-57ZM62-340v-280h174l228-230v740L236-340H62Zm482 32v-344q51 23 81.5 69.5T656-480q0 56-30.5 102.5T544-308Z" />
-		</svg>
-	`;
-
-	// Set Initial Icons
-	playBtn.innerHTML = pauseIcon;
-	muteBtn.innerHTML = unmuteIcon;
-
-	// Open Modal
-	function openModal(video) {
-		modal.style.display = window.innerWidth > 992 ? "block" : "flex";
-		setTimeout(() => modal.classList.add("active"), 300);
-		document.body.style.overflow = "hidden";
-		setTimeout(() => video.play(), 200);
-	}
-
-	// Close Modal
-	function closeModal(video) {
-		modal.classList.remove("active");
-		setTimeout(() => (modal.style.display = "none"), 300);
-		document.body.style.overflow = "visible";
-		video.pause();
-	}
-
-	// Event Listeners for Modal Open and Close
-	document.querySelectorAll('[data-event="open-modal"]').forEach((element) => {
-		element.addEventListener("click", () => openModal(modalVideo));
-	});
-	document
-		.querySelector('[data-event="close-modal"]')
-		.addEventListener("click", () => closeModal(modalVideo));
-
-	// Play or Pause Video
-	playBtn.addEventListener("click", () => {
-		if (modalVideo.paused || modalVideo.ended) {
-			modalVideo.play();
-			playBtn.innerHTML = pauseIcon;
-		} else {
-			modalVideo.pause();
-			playBtn.innerHTML = playIcon;
+		// Open modal function
+		function openModal() {
+			modal.style.display = window.innerWidth > 992 ? "block" : "flex";
+			setTimeout(() => modal.classList.add("active"), 100);
+			document.body.style.overflow = "hidden";
+			setTimeout(() => video.play(), 200);
 		}
-	});
 
-	// Mute or Unmute Video
-	muteBtn.addEventListener("click", () => {
-		if (modalVideo.muted) {
-			modalVideo.muted = false;
-			muteBtn.innerHTML = unmuteIcon;
-		} else {
-			modalVideo.muted = true;
-			muteBtn.innerHTML = muteIcon;
+		// Close modal function
+		function closeModal() {
+			modal.classList.remove("active");
+			setTimeout(() => (modal.style.display = "none"), 300);
+			document.body.style.overflow = "visible";
+			video.pause();
 		}
-	});
 
-	// Update Progress Bar
-	modalVideo.addEventListener("timeupdate", () => {
-		const progress = (modalVideo.currentTime / modalVideo.duration) * 100;
-		progressBar.style.width = `${progress}%`;
-	});
+		// Attach event listener to close button
+		if (closeBtn) {
+			closeBtn.addEventListener("click", closeModal);
+		}
 
-	// Seek Video Position
-	progressBarContainer.addEventListener("mousedown", (e) => {
-		const updateProgress = (event) => {
-			const containerWidth = progressBarContainer.offsetWidth;
-			const clickPosition = event.offsetX;
-			modalVideo.currentTime =
-				(clickPosition / containerWidth) * modalVideo.duration;
-		};
+		// Find all buttons that open this specific modal
+		document
+			.querySelectorAll(`[data-event="open-modal"][data-target="${modalId}"]`)
+			.forEach((btn) => {
+				btn.addEventListener("click", openModal);
+			});
 
-		updateProgress(e);
+		// Play/Pause toggle
+		playBtn.addEventListener("click", () => {
+			if (video.paused || video.ended) {
+				video.play();
+				playBtn.innerHTML = ICONS.pause;
+			} else {
+				video.pause();
+				playBtn.innerHTML = ICONS.play;
+			}
+		});
 
-		document.addEventListener("mousemove", updateProgress);
-		document.addEventListener("mouseup", () => {
-			document.removeEventListener("mousemove", updateProgress);
+		// Mute/Unmute toggle
+		muteBtn.addEventListener("click", () => {
+			video.muted = !video.muted;
+			muteBtn.innerHTML = video.muted ? ICONS.mute : ICONS.unmute;
+		});
+
+		// Update progress bar
+		video.addEventListener("timeupdate", () => {
+			const progress = (video.currentTime / video.duration) * 100;
+			progressBar.style.width = `${progress}%`;
+
+			// Auto-switch play button when video ends
+			if (video.ended) {
+				playBtn.innerHTML = ICONS.play;
+			}
+		});
+
+		// Seek video position
+		progressBarContainer.addEventListener("mousedown", (e) => {
+			const updateVideoProgress = (event) => {
+				const rect = progressBarContainer.getBoundingClientRect();
+				const clickPosition = event.clientX - rect.left;
+				const percentage = clickPosition / rect.width;
+				video.currentTime = percentage * video.duration;
+			};
+
+			updateVideoProgress(e);
+
+			const handleMouseMove = (e) => updateVideoProgress(e);
+			const handleMouseUp = () => {
+				document.removeEventListener("mousemove", handleMouseMove);
+				document.removeEventListener("mouseup", handleMouseUp);
+			};
+
+			document.addEventListener("mousemove", handleMouseMove);
+			document.addEventListener("mouseup", handleMouseUp);
 		});
 	});
+}
 
+// Initialize when DOM is fully loaded
+document.addEventListener("DOMContentLoaded", initVideoModals);
