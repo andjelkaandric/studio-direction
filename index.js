@@ -636,3 +636,113 @@ if (window.innerWidth > 992) {
 		}
 	);
 }
+
+// services modal video
+	// Modal Elements
+	const modal = document.getElementById("services-modal");
+	const modalVideo = document.getElementById("services-video");
+
+	// Video Controls
+	const playBtn = document.getElementById("play-btn");
+	const muteBtn = document.getElementById("mute-btn");
+	const progressBar = document.getElementById("progress-bar");
+	const progressBarContainer = document.querySelector(".video-modal__progress");
+
+	// SVG Icons
+	const playIcon = `
+		<svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="currentColor">
+			<path d="M292-162v-636l502 318-502 318Z" />
+		</svg>
+	`;
+
+	const pauseIcon = `
+		<svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="currentColor">
+			<path d="M549-171v-620h212v620H549Zm-350 0v-620h212v620H199Z" />
+		</svg>
+	`;
+
+	const muteIcon = `
+		<svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="currentColor">
+			<path d="m635-300-74-74 106-106-106-106 74-74 106 106 106-106 74 74-106 106 106 106-74 74-106-106-106 106ZM79-340v-280h174l228-230v740L253-340H79Z" />
+		</svg>
+	`;
+
+	const unmuteIcon = `
+		<svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="currentColor">
+			<path d="M544-57v-108q110-26 179-115t69-202q0-112-69.5-200T544-796v-108q155 26 254.5 145.5T898-482q0 158-99.5 278.5T544-57ZM62-340v-280h174l228-230v740L236-340H62Zm482 32v-344q51 23 81.5 69.5T656-480q0 56-30.5 102.5T544-308Z" />
+		</svg>
+	`;
+
+	// Set Initial Icons
+	playBtn.innerHTML = pauseIcon;
+	muteBtn.innerHTML = unmuteIcon;
+
+	// Open Modal
+	function openModal(video) {
+		modal.style.display = window.innerWidth > 992 ? "block" : "flex";
+		setTimeout(() => modal.classList.add("active"), 300);
+		document.body.style.overflow = "hidden";
+		setTimeout(() => video.play(), 200);
+	}
+
+	// Close Modal
+	function closeModal(video) {
+		modal.classList.remove("active");
+		setTimeout(() => (modal.style.display = "none"), 300);
+		document.body.style.overflow = "visible";
+		video.pause();
+	}
+
+	// Event Listeners for Modal Open and Close
+	document.querySelectorAll('[data-event="open-modal"]').forEach((element) => {
+		element.addEventListener("click", () => openModal(modalVideo));
+	});
+	document
+		.querySelector('[data-event="close-modal"]')
+		.addEventListener("click", () => closeModal(modalVideo));
+
+	// Play or Pause Video
+	playBtn.addEventListener("click", () => {
+		if (modalVideo.paused || modalVideo.ended) {
+			modalVideo.play();
+			playBtn.innerHTML = pauseIcon;
+		} else {
+			modalVideo.pause();
+			playBtn.innerHTML = playIcon;
+		}
+	});
+
+	// Mute or Unmute Video
+	muteBtn.addEventListener("click", () => {
+		if (modalVideo.muted) {
+			modalVideo.muted = false;
+			muteBtn.innerHTML = unmuteIcon;
+		} else {
+			modalVideo.muted = true;
+			muteBtn.innerHTML = muteIcon;
+		}
+	});
+
+	// Update Progress Bar
+	modalVideo.addEventListener("timeupdate", () => {
+		const progress = (modalVideo.currentTime / modalVideo.duration) * 100;
+		progressBar.style.width = `${progress}%`;
+	});
+
+	// Seek Video Position
+	progressBarContainer.addEventListener("mousedown", (e) => {
+		const updateProgress = (event) => {
+			const containerWidth = progressBarContainer.offsetWidth;
+			const clickPosition = event.offsetX;
+			modalVideo.currentTime =
+				(clickPosition / containerWidth) * modalVideo.duration;
+		};
+
+		updateProgress(e);
+
+		document.addEventListener("mousemove", updateProgress);
+		document.addEventListener("mouseup", () => {
+			document.removeEventListener("mousemove", updateProgress);
+		});
+	});
+
