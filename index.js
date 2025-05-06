@@ -221,11 +221,11 @@ items.forEach((item, index) => {
 
 	gsap.to(item, {
 		opacity: 0,
-		xPercent: xPercent,
+		// xPercent: xPercent,
 		scrollTrigger: {
 			trigger: item,
-			start: "center 50%", // Trigger when top of item hits 50% of viewport
-			end: "bottom 50%",
+			start: "bottom -50vh", // Trigger when top of item hits 50% of viewport
+			end: "bottom -60vh",
 			scrub: true, // Smooth animation tied to scroll
 			markers: false, // Set to true for debugging
 		},
