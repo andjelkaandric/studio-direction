@@ -211,7 +211,7 @@ function render() {
 	);
 }
 
-// Select all morph__item elements
+// Morph items animation
 const items = document.querySelectorAll(".morph__item");
 
 items.forEach((item, index) => {
@@ -224,7 +224,7 @@ items.forEach((item, index) => {
 		xPercent: xPercent,
 		scrollTrigger: {
 			trigger: item,
-			start: "top 50%", // Trigger when top of item hits 50% of viewport
+			start: "center 50%", // Trigger when top of item hits 50% of viewport
 			end: "bottom 50%",
 			scrub: true, // Smooth animation tied to scroll
 			markers: false, // Set to true for debugging
