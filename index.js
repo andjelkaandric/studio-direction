@@ -294,7 +294,7 @@ function setupHorizontalScrollOverlay() {
 			trigger: "#horizontal-trigger",
 			scrub: 1,
 			start: "top bottom",
-			end: "top top",
+			end: "top center",
 			invalidateOnRefresh: true,
 		},
 	});
@@ -307,7 +307,7 @@ function setupHorizontalScrollOverlay() {
 			trigger: "#horizontal-trigger",
 			scrub: 1,
 			start: "bottom top",
-			end: "bottom -10px",
+			end: "bottom center",
 			invalidateOnRefresh: true,
 		},
 	});
