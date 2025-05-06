@@ -211,6 +211,27 @@ function render() {
 	);
 }
 
+// Select all morph__item elements
+const items = document.querySelectorAll(".morph__item");
+
+items.forEach((item, index) => {
+	// Determine direction based on whether item has 'right' class
+	const isRight = item.classList.contains("right");
+	const xPercent = isRight ? 100 : -100;
+
+	gsap.to(item, {
+		opacity: 0,
+		xPercent: xPercent,
+		scrollTrigger: {
+			trigger: item,
+			start: "top 50%", // Trigger when top of item hits 50% of viewport
+			end: "bottom 50%",
+			scrub: true, // Smooth animation tied to scroll
+			markers: false, // Set to true for debugging
+		},
+	});
+});
+
 // Track animation
 function animateTrackItems() {
 	const trackItems = document.querySelectorAll(".track__item");
