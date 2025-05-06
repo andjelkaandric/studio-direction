@@ -212,25 +212,20 @@ function render() {
 }
 
 // Morph items animation
-// const items = document.querySelectorAll(".morph__item");
+const items = document.querySelectorAll(".morph__item");
 
-// items.forEach((item, index) => {
-// 	// Determine direction based on whether item has 'right' class
-// 	const isRight = item.classList.contains("right");
-// 	const xPercent = isRight ? 100 : -100;
-
-// 	gsap.to(item, {
-// 		opacity: 0,
-// 		// xPercent: xPercent,
-// 		scrollTrigger: {
-// 			trigger: item,
-// 			start: "bottom -50vh", // Trigger when top of item hits 50% of viewport
-// 			end: "bottom -60vh",
-// 			scrub: true, // Smooth animation tied to scroll
-// 			markers: false, // Set to true for debugging
-// 		},
-// 	});
-// });
+items.forEach((item, index) => {
+	gsap.to(item, {
+		opacity: 0,
+		filter: 'blur(24px)',
+		scrollTrigger: {
+			trigger: item,
+			start: "top 20%",
+			end: "bottom top",
+			scrub: true,
+		},
+	});
+});
 
 // Track animation
 function animateTrackItems() {
