@@ -265,10 +265,10 @@ function setupHorizontalScroll() {
 		x: -scrollDistance,
 		ease: "none",
 		scrollTrigger: {
-			trigger: "#horizontal-trigger",
+			trigger: ".track__wrap",
 			scrub: 1,
-			start: "top bottom",
-			end: "top top",
+			start: "top 80%",
+			end: "top 20%",
 			invalidateOnRefresh: true,
 			// markers: true, // Uncomment for debugging
 		},
