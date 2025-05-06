@@ -267,7 +267,7 @@ function setupHorizontalScroll() {
 		scrollTrigger: {
 			trigger: ".track__wrap",
 			scrub: 1,
-			start: "top 80%",
+			start: "top 70%",
 			end: "top 20%",
 			invalidateOnRefresh: true,
 			// markers: true, // Uncomment for debugging
@@ -326,38 +326,6 @@ function setupHorizontalScrollOverlay() {
 
 setupHorizontalScrollOverlay();
 window.addEventListener("resize", setupHorizontalScrollOverlay);
-
-//swiper slider
-const swiperThree = new Swiper("#swiper-three", {
-	slidesPerView: 1,
-	spaceBetween: 12,
-	freeMode: false,
-	speed: 800,
-	scrollbar: {
-		el: "#scrollbar-three",
-	},
-	navigation: {
-		prevEl: "#three-prev",
-		nextEl: "#three-next",
-	},
-	breakpoints: {
-		1920: {
-			slidesPerView: 4,
-			freeMode: true,
-			spaceBetween: 32,
-		},
-		992: {
-			slidesPerView: 4,
-			freeMode: true,
-			spaceBetween: 32,
-		},
-		479: {
-			slidesPerView: 2,
-			freeMode: true,
-			spaceBetween: 32,
-		},
-	},
-});
 
 //huge slider
 document.addEventListener("DOMContentLoaded", () => {
