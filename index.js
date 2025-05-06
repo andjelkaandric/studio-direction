@@ -306,8 +306,8 @@ function setupHorizontalScrollOverlay() {
 		scrollTrigger: {
 			trigger: "#horizontal-trigger",
 			scrub: 1,
-			start: "bottom top",
-			end: "bottom center",
+			start: "top center",
+			end: "top top",
 			invalidateOnRefresh: true,
 		},
 	});
