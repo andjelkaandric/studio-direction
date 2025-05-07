@@ -189,8 +189,8 @@ gsap.to(sequenceState, {
 	ease: "none",
 	scrollTrigger: {
 		trigger: ".o-section.morph",
-		start: "top top",
-		end: "bottom bottom",
+		start: "top 80%",
+		end: "bottom center",
 		// pin: true,
 		scrub: 0.5,
 	},
