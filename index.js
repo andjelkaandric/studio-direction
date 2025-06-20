@@ -202,12 +202,43 @@ images[0].onload = render;
 
 function render() {
 	context.clearRect(0, 0, canvas.width, canvas.height);
+	
+	const img = images[Math.round(sequenceState.frame)];
+	
+	// Čekaj da se slika učita
+	if (!img.complete || img.naturalWidth === 0) return;
+	
+	// Canvas dimenzije
+	const canvasWidth = canvas.width;
+	const canvasHeight = canvas.height;
+	const canvasRatio = canvasWidth / canvasHeight;
+	
+	// Slika dimenzije
+	const imgWidth = img.naturalWidth;
+	const imgHeight = img.naturalHeight;
+	const imgRatio = imgWidth / imgHeight;
+	
+	let drawWidth, drawHeight, offsetX, offsetY;
+	
+	// Object-fit: cover logika
+	if (imgRatio > canvasRatio) {
+		// Slika je šira - fit po visini, crop sa strana
+		drawHeight = canvasHeight;
+		drawWidth = drawHeight * imgRatio;
+		offsetX = (canvasWidth - drawWidth) / 2;
+		offsetY = 0;
+	} else {
+		// Slika je viša - fit po širini, crop gore/dole
+		drawWidth = canvasWidth;
+		drawHeight = drawWidth / imgRatio;
+		offsetX = 0;
+		offsetY = (canvasHeight - drawHeight) / 2;
+	}
+	
 	context.drawImage(
-		images[Math.round(sequenceState.frame)],
-		0,
-		0,
-		canvas.width,
-		canvas.height
+		img,
+		offsetX, offsetY,
+		drawWidth, drawHeight
 	);
 }
 
